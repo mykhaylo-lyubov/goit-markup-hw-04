@@ -1,6 +1,6 @@
 
-# Ds-store
-*.ds_store
+# DS-store
+*.DS_store
 
 # Logs
 logs
