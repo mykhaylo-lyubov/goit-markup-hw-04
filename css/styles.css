@@ -181,7 +181,7 @@ main {
   text-align: center;
 }
 
-.hero {
+.hero .overlay {
   max-width: 1600px;
   height: 600px;
   background-color: black;
@@ -192,10 +192,11 @@ main {
     ),
     url(../images/hero-bg.jpg);
   background-repeat: no-repeat;
-}
 
-.hero .container {
   padding-top: 200px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-title {
@@ -245,7 +246,6 @@ main {
 .our-features > h2 {
   margin-top: 0px;
   margin-bottom: 0px;
-  display: none;
 }
 
 .our-features .list {
@@ -450,7 +450,7 @@ main {
 }
 
 .team .instagram-icon:hover,
-.tean .instagram-icon:focus,
+.team .instagram-icon:focus,
 .team .twitter-icon:hover,
 .team .twitter-icon:focus,
 .team .facebook-icon:hover,
@@ -509,7 +509,8 @@ main {
   cursor: pointer;
 }
 
-.our-clients .item:hover {
+.our-clients .item:hover,
+.our-clients .item:focus {
   fill: var(--accent-color);
 
   border-color: var(--accent-color);
@@ -649,7 +650,7 @@ main {
   margin-right: 11px;
 }
 
-.join-us .copyright {
+.copyright {
   display: flex;
   justify-content: center;
   margin-top: 46px;
@@ -717,6 +718,9 @@ body-nav-button-primary-color #F5F4FA */
 .portfolio .button-portfolio:focus {
   background-color: var(--accent-color);
   color: var(--text-on-the-button-color);
+
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 .portfolio-preview {
