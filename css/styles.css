@@ -23,6 +23,9 @@ clients border colour: #AFB1B8 */
   --clients-border-color: #afb1b8;
   --social-links-primary-bg-color: rgba(255, 255, 255, 0.1);
   --our-features-items-primary-color: #f5f4fa;
+  --team-social-links-icon-primary-color: #afb1b8;
+  --team-social-links-icon-hover-focus-color: #ffffff;
+  --clients-icons-primary-color: #afb1b8;
 }
 
 .page {
@@ -141,28 +144,29 @@ main .text {
   color: var(--primary-text-color);
 }
 
-.auth-nav .link::before {
+.auth-nav .link {
   display: inline-flex;
-  content: "";
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  align-content: center;
+  align-items: center;
   /* background-color: red; */
 }
 
-.auth-nav .mail-icon::before {
+.envelope-icon-sprite,
+.smartphone-icon-sprite {
+  fill: currentColor;
+
   margin-right: 10px;
-  width: 16px;
-  height: 11px;
-  background-image: url(../images/link-icons/envelope.svg);
 }
 
-.auth-nav .phone-icon::before {
-  margin-right: 10px;
-  width: 10px;
-  height: 15px;
-  background-image: url(../images/link-icons/smartphone.svg);
+.auth-nav > .item:hover {
+  fill: #2196f3;
+}
+
+.auth-nav .mail-icon:hover,
+.auth-nav .phone-icon:hover {
+  fill: inherit;
 }
 
 /* main section */
@@ -259,35 +263,6 @@ main {
   margin-left: 30px;
 }
 
-.our-features .item::before {
-  display: inline-flex;
-  content: "";
-  width: 270px;
-  height: 120px;
-  background-color: var(--our-features-items-primary-color);
-  border-radius: 4px;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  margin-bottom: 30px;
-}
-
-.our-features .item:nth-child(1)::before {
-  background-image: url(../images/about-company/Vector.svg);
-}
-
-.our-features .item:nth-child(2)::before {
-  background-image: url(../images/about-company/Vector-2.svg);
-}
-
-.our-features .item:nth-child(3)::before {
-  background-image: url(../images/about-company/Vector-3.svg);
-}
-
-.our-features .item.item:nth-child(4)::before {
-  background-image: url(../images/about-company/Vector-4.svg);
-}
-
 .our-features > .container {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -296,13 +271,18 @@ main {
 }
 
 .our-features .interactive-pic {
-  background-color: var(--portfolio-body-nav-button-primary-color);
-  border: 1px solid transparent;
-  border: none;
-  padding: 25px 100px;
-  border-radius: 4px;
+  display: inline-flex;
+
+  background-color: var(--our-features-items-primary-color);
+  width: 270px;
+  height: 120px;
 
   margin-bottom: 30px;
+
+  border-radius: 4px;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .our-features .title {
@@ -460,25 +440,32 @@ main {
   margin-left: 10px;
 }
 
-.team .instagram-icon {
-  background-image: url(../images/social-links-icons/team-social-links/team-instagram.svg);
-}
-
-.team .twitter-icon {
-  background-image: url(../images/social-links-icons/team-social-links/team-twitter.svg);
-}
-
-.team .facebook-icon {
-  background-image: url(../images/social-links-icons/team-social-links/team-facebook.svg);
-}
-
+.team .instagram-icon,
+.team .twitter-icon,
+.team .facebook-icon,
 .team .linkedin-icon {
-  background-image: url(../images/social-links-icons/team-social-links/team-linkedin.svg);
+  background-color: transparent;
+
+  fill: var(--team-social-links-icon-primary-color);
 }
 
-.team .social-links > li > a:hover,
-.social-links > li > a:focus {
+.team .instagram-icon:hover,
+.tean .instagram-icon:focus,
+.team .twitter-icon:hover,
+.team .twitter-icon:focus,
+.team .facebook-icon:hover,
+.team .facebook-icon:focus,
+.team .linkedin-icon:hover,
+.team .linkedin-icon:focus {
   background-color: var(--accent-color);
+
+  fill: var(--team-social-links-icon-hover-focus-color);
+}
+
+.social-links .item {
+  width: 44px;
+  height: 44px;
+  /* given to remove excessive 4 px */
 }
 
 /* clients */
@@ -499,16 +486,33 @@ main {
   justify-content: space-between;
 }
 
+.our-clients .link {
+  display: inline-flex;
+  /* given to remove 4px from bottom */
+
+  fill: inherit;
+}
+
 .our-clients .item {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  fill: var(--clients-icons-primary-color);
 
   width: calc((100% - 150px) / 6);
   height: 90px;
 
   border: 1px solid var(--clients-border-color);
   border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.our-clients .item:hover {
+  fill: var(--accent-color);
+
+  border-color: var(--accent-color);
 }
 
 /* footer */
@@ -619,30 +623,14 @@ main {
 .linkedin-icon {
   display: inline-flex;
 
+  fill: var(--text-on-the-button-color);
+
   background-color: var(--social-links-primary-bg-color);
   background-repeat: no-repeat;
   background-position: center;
-  width: 44px;
-  height: 44px;
   border-radius: 50%;
 
   cursor: pointer;
-}
-
-.join-us .instagram-icon {
-  background-image: url(../images/social-links-icons/ellipse-instagram.svg);
-}
-
-.join-us .twitter-icon {
-  background-image: url(../images/social-links-icons/ellipse-twitter.svg);
-}
-
-.join-us .facebook-icon {
-  background-image: url(../images/social-links-icons/ellipse-facebook.svg);
-}
-
-.join-us .linkedin-icon {
-  background-image: url(../images/social-links-icons/ellipse-linkedin.svg);
 }
 
 .join-us .instagram-icon:hover,
@@ -754,10 +742,6 @@ body-nav-button-primary-color #F5F4FA */
 .portfolio-preview .item {
   margin-bottom: 30px;
 }
-
-/* .portfolio-preview .item:nth-last-child(-n + 3) {
-  margin-bottom: 94px;
-} */
 
 .portfolio-preview a {
   display: block;
