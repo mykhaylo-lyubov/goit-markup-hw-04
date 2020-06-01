@@ -487,20 +487,13 @@ main {
 }
 
 .our-clients .link {
-  display: inline-flex;
-  /* given to remove 4px from bottom */
-
-  fill: inherit;
-}
-
-.our-clients .item {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  fill: var(--clients-icons-primary-color);
+  fill: inherit;
 
-  width: calc((100% - 150px) / 6);
+  width: 170px;
   height: 90px;
 
   border: 1px solid var(--clients-border-color);
@@ -509,11 +502,18 @@ main {
   cursor: pointer;
 }
 
+.our-clients .item {
+  fill: var(--clients-icons-primary-color);
+}
+
+.our-clients .link:hover,
+.our-clients .link:focus {
+  border-color: var(--accent-color);
+}
+
 .our-clients .item:hover,
 .our-clients .item:focus {
   fill: var(--accent-color);
-
-  border-color: var(--accent-color);
 }
 
 /* footer */
